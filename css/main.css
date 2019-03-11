@@ -24,6 +24,21 @@ h1{
 	margin: 0 auto;
 }
 
+#header
+{
+	display: flex;
+	flex-direction: row;
+}
+
+#logo
+{
+	width: 100px;
+	height: 140.743px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .row{
 	display: flex;
 	flex-direction: row;
