@@ -146,13 +146,59 @@ const	dragZone	 = document.getElementById('dragDiv'),
 			squirrel.classList.add('on');
 			console.log('squirrel on');
 		};
+
+		function stopAudio(){
+			bunnyAud.pause();
+			owlAud.pause();
+			foxAud.pause();
+			squirrelAud.pause();
+		};
+
 		
 	dragZone.querySelectorAll('img').forEach(img=>{
 		img.addEventListener('dragstart', lightOn);
 	});
 
+	// Background Change	
+		function springChange(){
+			dropZone.style.backgroundImage = 'url(images/forest_spring.png)';
+		};
 
-	window.addEventListener('load', playAmbient);
+		function fallChange(){
+			dropZone.style.backgroundImage = 'url(images/forest_fall.png)';
+		};
+
+		function winterChange(){
+			dropZone.style.backgroundImage = 'url(images/forest_winter.png)';
+		};
+
+		function summerChange(){
+			dropZone.style.backgroundImage = 'url(images/forest_summer.png)';
+		};
+
+
+			springOp.addEventListener('click', springChange);
+			fallOp.addEventListener('click', fallChange);
+			winterOp.addEventListener('click', winterChange);
+			summerOp.addEventListener('click', summerChange);
+
+	// Reset Button
+		function reset(){
+			springChange();
+			stopAudio();
+			console.log('all audio stopped');
+
+			bunny.classList.remove('on');
+			owl.classList.remove('on');
+			fox.classList.remove('on');
+			squirrel.classList.remove('on');
+			console.log('all animals off');
+
+		};
+
+		resetZone.addEventListener('click', reset)
+
+	// window.addEventListener('load', playAmbient);
 	// bunny.addEventListener('drop', playBunny);
 	// dropZone.querySelectorAll('img').forEach(img=>{
 	// 	img.addEventListener('dragover', function(){
