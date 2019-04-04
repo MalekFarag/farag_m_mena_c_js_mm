@@ -1,22 +1,164 @@
 (() => {
 console.log('JS Linked');
+			//Drag Zone Animals
+const	dragZone	 = document.getElementById('dragDiv'),
+
+		dragBun		 = document.getElementById('dragBun'),
+		dragOwl		 = document.getElementById('dragOwl'),
+		dragFox 	 = document.getElementById('dragFox'),
+		dragSqui 	 = document.getElementById('dragSqui'),
+
+			//Animals
+		bunny		 = document.getElementById('bunny'),
+		owl 		 = document.getElementById('owl'),
+		fox 		 = document.getElementById('fox'),
+		squirrel 	 = document.getElementById('squirrel'),
+
+			//Drop Zone Animals
+		dzB			 = document.getElementById('dz1'),
+		dzO			 = document.getElementById('dz2'),
+		dzF			 = document.getElementById('dz3'),
+		dzS			 = document.getElementById('dz4'),
+
+			//Other Zones
+		dropZone 	 = document.getElementById('dropZone'),
+		resetZone 	 = document.getElementById('resetZone'),
+
+		springOp 	 = document.getElementById('spring'),
+		fallOp 		 = document.getElementById('fall'),
+		winterOp 	 = document.getElementById('winter'),
+		summerOp 	 = document.getElementById('summer'),
+
+			//Audio Tracks
+		bunnyAud 	 = new Audio('audio/rabit.mp3'),
+		owlAud		 = new Audio('audio/owl.wav'),
+		foxAud		 = new Audio('audio/fox.aiff'),
+		squirrelAud  = new Audio('audio/squirrel.wav'),
+		ambient		 = new Audio('audio/Jungle_Atmosphere_Afternoon.mp3');
 
 
-let dragZone = document.getElementById('dragZone');
-let dropZone = document.getElementById('dropZone');
+	// Drag & Drop Functions
+		// Ondrag Events
+		function lightOn() {
+			console.log('dragging...');
+			if(this.id == 'dragBun'){
+				bunny.classList.add('active');
+			};
 
-let animals = document.getElementsByName('animal')
+			if(this.id == 'dragOwl'){
+				owl.classList.add('active');
+			};
+
+			if(this.id == 'dragFox'){
+				fox.classList.add('active');
+			};
+
+			if(this.id == 'dragSqui'){
+				squirrel.classList.add('active');
+			};
+
+			console.log('drop zone active');
+
+			dragZone.querySelectorAll('img').forEach(img=>{
+			img.addEventListener('dragend', lightOff);
+			});
+		};
+
+		function lightOff(){
+			bunny.classList.remove('active');
+			owl.classList.remove('active');
+			fox.classList.remove('active');
+			squirrel.classList.remove('active');
+
+			console.log('drop zone no longer active')
+		};
+
+		// On Drop Functions
+		// function drop(ev){
+		// 	if(element.target.id == 'bunny'){
+		// 		console.log('test')
+		// 		playBunny();
+		// 	};
+				
+			
+
+		// 	if(this.id == 'dragOwl'){
+				
+		// 	};
+
+		// 	if(this.id == 'dragFox'){
+				
+		// 	};
+
+		// 	if(this.id == 'dragSqui'){
+				
+		// 	};
+		// };
+			
+		
+		
+
+	// Audio functions
+		function playAmbient(){
+			ambient.currentTime = 0;
+			ambient.loop = true;
+			ambient.play();
+			console.log('ambient audio playing');
+		};
 
 
-//Letting 'animals' be individually selected
-for(let a = 0; a < animals.length; a++) { 
-	let animal = animals[a];
+		function playBunny(){
+			bunnyAud.currentTime = 0;
+			bunnyAud.loop = true;
+			bunnyAud.play();
+			console.log('bunny audio playing');
 
+			bunny.classList.add('on');
+			console.log('bunny on');
+		};
+
+		function playOwl(){
+			owlAud.currentTime = 0;
+			owlAud.loop = true;
+			owlAud.play();
+			console.log('owl audio playing');
+
+			owl.classList.add('on');
+			console.log('owl on');
+		};
+
+		function playFox(){
+			foxAud.currentTime = 0;
+			foxAud.loop = true;
+			foxAud.play();
+			console.log('fox audio playing');
+
+			fox.classList.add('on');
+			console.log('fox on');
+		};
+
+		function playSquirrel(){
+			squirrelAud.currentTime = 0;
+			squirrelAud.loop = true;
+			squirrelAud.play();
+			console.log('squirrel audio playing');
+
+			squirrel.classList.add('on');
+			console.log('squirrel on');
+		};
+		
+	dragZone.querySelectorAll('img').forEach(img=>{
+		img.addEventListener('dragstart', lightOn);
+	});
+
+
+	window.addEventListener('load', playAmbient);
+	// bunny.addEventListener('drop', playBunny);
+	// dropZone.querySelectorAll('img').forEach(img=>{
+	// 	img.addEventListener('dragover', function(){
+	// 	console.log('drop?');
+	// 	drop();
+	// });
+	// });
 	
-}
-
-
-
-
-
-})();
+})();			
