@@ -82,7 +82,7 @@ h2{
 
 #dropZone{
 	border-radius: 15px;
-	background: url(../images/forest_spring.png); 
+	background-image: url(../images/forest_spring.png); 
 		background-repeat:no-repeat; 
 		background-size: cover; 
 		background-position: center;
@@ -158,6 +158,10 @@ h2{
 
 .invisible{
 	opacity: .5;
+}
+
+.off {
+	visibility: hidden;
 }
 
 

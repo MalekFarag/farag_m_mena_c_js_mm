@@ -8,14 +8,20 @@ const	dragZone	 = document.getElementById('dragDiv'),
 		dragFox 	 = document.getElementById('dragFox'),
 		dragSqui 	 = document.getElementById('dragSqui'),
 
-			//Drop Zone Animals
+			//Animals
 		bunny		 = document.getElementById('bunny'),
 		owl 		 = document.getElementById('owl'),
 		fox 		 = document.getElementById('fox'),
 		squirrel 	 = document.getElementById('squirrel'),
 
+			//Drop Zone Animals
+		dzB			 = document.getElementById('dz1'),
+		dzO			 = document.getElementById('dz2'),
+		dzF			 = document.getElementById('dz3'),
+		dzS			 = document.getElementById('dz4'),
+
 			//Other Zones
-		dropZone 	 = document.getElementById('dropBorder'),
+		dropZone 	 = document.getElementById('dropZone'),
 		resetZone 	 = document.getElementById('resetZone'),
 
 		springOp 	 = document.getElementById('spring'),
@@ -24,18 +30,20 @@ const	dragZone	 = document.getElementById('dragDiv'),
 		summerOp 	 = document.getElementById('summer'),
 
 			//Audio Tracks
-		bunnyAud 	 = new Audio('audio/rabit.mp3'),
-		owlAud		 = new Audio('audio/owl.wav'),
-		foxAud		 = new Audio('audio/fox.aiff'),
-		squirrelAud  = new Audio('audio/squirrel.wav'),
+		// bunnyAud 	 = new Audio('audio/rabit.mp3'),
+		// owlAud		 = new Audio('audio/owl.wav'),
+		// foxAud		 = new Audio('audio/fox.aiff'),
+		// squirrelAud  = new Audio('audio/squirrel.wav'),
 		ambient		 = new Audio('audio/Jungle_Atmosphere_Afternoon.mp3');
 
+		
 
-	//Drag & Drop Functions
-		//Ondrag Events
-		function lightOn() {
+
+	// Drag & Drop Functions
+		// Ondrag Events
+		function lightOn(e) {
 			console.log('dragging...');
-			if(target.id == 'dragBun'){
+			if(this.id == 'dragBun'){
 				bunny.classList.add('active');
 			};
 
@@ -55,9 +63,10 @@ const	dragZone	 = document.getElementById('dragDiv'),
 
 			dragZone.querySelectorAll('img').forEach(img=>{
 			img.addEventListener('dragend', lightOff);
-		});
 
-			};
+			e.dataTransfer.setData('text/plain', this.id);
+			});
+		};
 
 		function lightOff(){
 			bunny.classList.remove('active');
@@ -65,71 +74,105 @@ const	dragZone	 = document.getElementById('dragDiv'),
 			fox.classList.remove('active');
 			squirrel.classList.remove('active');
 
-			console.log('drop zone no longer active')
+			console.log('drop zone no longer active');
 		};
 
-		//Drop Events
-		function playAnimal(){
-			console.log('dropped');
-			if(this.id == 'bunny'){
-				bunny.classList.add('on');
-				playBunny();
-			};
+		// Drop Functions
+			// Dragover
+				
+				dropZone.addEventListener('dragover', function(e) {
+  					e.preventDefault();
+  					console.log('drop?');
+				});
+			
+			//Drop
+					dropZone.addEventListener('drop', function(e) {
+					let animals = e.dataTransfer.getData("text/plain");
+						e.preventDefault();
 
-			if(this.id == 'owl'){
-				owl.classList.add('on');
-				playOwl();
-			};
+						if (bunny.classList.contains("active")) {
+							bunny.classList.remove("invisible");
+							dragBun.classList.add("off");
+						}
+						 if (owl.classList.contains("active")) {
+							owl.classList.remove("invisible");
+							dragOwl.classList.add("off");
+						}
+						if (fox.classList.contains("active")) {
+							fox.classList.remove("invisible");
+							dragFox.classList.add("off");
+						}
+						if (squirrel.classList.contains("active")) {
+							squirrel.classList.remove("invisible");
+							dragSqui.classList.add("off");
+						}
 
-			if(this.id == 'fox'){
-				fox.classList.add('on');
-				playFox();
-			};
+						console.log(`${animals} was dropped`);
+						let animalSound = document.createElement("audio");
+						animalSound.src = `audio/${animals}.wav`;
 
-			if(this.id == 'squirrel'){
-				squirrel.classList.add('on');
-				playSquirrel();
-			};
-		};
+						animalSound.play();
+
+					animalSound.addEventListener('ended', function() {
+    					this.currentTime = 0;
+    					this.play();
+    		});
+					});
 
 	// Audio functions
 		function playAmbient(){
 			ambient.currentTime = 0;
 			ambient.loop = true;
 			ambient.play();
+			console.log('ambient audio playing');
 		};
 
 
-		function playBunny(){
-			bunnyAud.currentTime = 0;
-			bunnyAud.loop = true;
-			bunnyAud.play();
+		function stopAudio(e){
 		};
-
-		function playFox(){
-			foxAud.currentTime = 0;
-			foxAud.loop = true;
-			foxAud.play();
-		};
-
-		function playOwl(){
-			owlAud.currentTime = 0;
-			owlAud.loop = true;
-			owlAud.play();
-		};
-
-		function playSquirrel(){
-			squirrelAud.currentTime = 0;
-			squirrelAud.loop = true;
-			squirrelAud.play();
-		};
-		
 
 		
-
 	dragZone.querySelectorAll('img').forEach(img=>{
 		img.addEventListener('dragstart', lightOn);
 	});
 
-	dropZone.addEventListener('drop', playAnimal);
+	// Background Change	
+		function springChange(){
+			dropZone.style.backgroundImage = 'url(images/forest_spring.png)';
+		};
+
+		function fallChange(){
+			dropZone.style.backgroundImage = 'url(images/forest_fall.png)';
+		};
+
+		function winterChange(){
+			dropZone.style.backgroundImage = 'url(images/forest_winter.png)';
+		};
+
+		function summerChange(){
+			dropZone.style.backgroundImage = 'url(images/forest_summer.png)';
+		};
+
+
+			springOp.addEventListener('click', springChange);
+			fallOp.addEventListener('click', fallChange);
+			winterOp.addEventListener('click', winterChange);
+			summerOp.addEventListener('click', summerChange);
+
+	// Reset Button
+		function reset(){
+			springChange();
+			stopAudio();
+
+			console.log('all audio stopped');
+
+			bunny.classList.remove('on');
+			owl.classList.remove('on');
+			fox.classList.remove('on');
+			squirrel.classList.remove('on');
+			console.log('all animals off');
+		};
+
+		resetZone.addEventListener('click', reset);
+	
 })();			
