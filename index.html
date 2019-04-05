@@ -8,43 +8,82 @@
 </head>
 <body>
 <div id='container'>
-	<h1>Into The Woods</h1>
+	<H1 class='hidden'>Into The Woods Game</H1>
 
+	<div class='column' id='con1'>
+	<img src="images/logo.svg" alt='logo' id='logo'>
+
+	<h2 id='selectH2'>SELECT</h2>
+
+	<div id='select'>
+
+		<div class='row'>
+		<div class='option'>
+			<p>Spring</p>
+			<img src="images/forest_spring.png" id='spring' class='backOp' alt='thumbnail'>
+		</div>
+
+		<div class='option'>
+			<p>Fall</p>
+			<img src="images/forest_fall.png" id='fall' class='backOp' alt='thumbnail'>
+		</div>
+		</div>
+
+		<div class='row'>
+		<div class='option'>
+			<p>Winter</p>
+			<img src="images/forest_winter.png" id='winter' class='backOp' alt='thumbnail'>
+		</div>
+
+		<div class='option'>
+			<p>Summer</p>
+			<img src="images/forest_summer.png" id='summer' class='backOp' alt='thumbnail'>
+		</div>
+	</div>
+
+	</div>
+	</div>
+	<div class='column' id='con2'>
+	<div id='dropBorder'>
 	<div id="dropZone">
 		<div id='dz1' class="dz">
-			<img src="images/bunny.png" id='bunny' class='animal invisible'>
+			<img src="images/bunny.png" id='bunny' class='invisible animal dropAnimal'>
 
 		</div>
 
 		<div id='dz2' class="dz">
-			<img src="images/owl.png" id='owl' class='animal invisible'>
+			<img src="images/owl.png" id='owl' class='invisible dropAnimal animal'>
 
 		</div>
 
 		<div id='dz3' class="dz">
-			<img src="images/fox.png" id='fox' class='animal invisible'>
+			<img src="images/fox.png" id='fox' class='invisible dropAnimal animal'>
 
 		</div>
 
 		<div id='dz4' class="dz">
-			<img src="images/squirrel.png" id='squirrel' class='animal invisible'>
+			<img src="images/squirrel.png" id='squirrel' class='invisible dropAnimal animal'>
 
 		</div>
+	</div>
 
 	</div>
-	<div class="row">
+	<div class="row" id='dragReset'>
 		<div id="dragZone">
-		<img src="images/bunny.png" id='bunny' draggable='true' class='animal'>
-		<img src="images/owl.png" id='owl' draggable='true' class='animal'>
-		<img src="images/fox.png" id='fox' draggable='true' class='animal'>
-		<img src="images/squirrel.png" id='squirrel' draggable='true' class='animal'>
-
+			<h2 id='dragH2'>DRAG</h2>
+			<div class='row' id='dragDiv'>
+		<img src="images/bunny.png" id='dragBun' class="animals" draggable='true'>
+		<img src="images/owl.png" id='dragOwl' class="animals"  draggable='true'>
+		<img src="images/fox.png" id='dragFox' class="animals"  draggable='true'>
+		<img src="images/squirrel.png" id='dragSqui' class="animals"  draggable='true'>
+</div>
 
 
 		</div>
 		<div id="resetZone"><p>Reset</p></div>
 	</div>
+	</div>
 </div>
-<script src="js/main.js"></script> 
+<script src="js/main2.js"></script> 
 </body>
 </html>

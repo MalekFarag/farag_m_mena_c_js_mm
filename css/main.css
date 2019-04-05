@@ -11,17 +11,21 @@ body{
 	font-family: helvetica, arial, sans-serif;
 }
 
-h1{
+h2{
 	color: white;
 	font-weight: bold;
 	font-size: 30px;
-	text-align: center;
-	margin: 20px;
+	margin-top: 50px;
+	margin-bottom: 20px;
 }
 
 #container{
-	max-width: 1000px;
+	width: 1500px;
 	margin: 0 auto;
+	margin-top: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .row{
@@ -29,83 +33,183 @@ h1{
 	flex-direction: row;
 }
 
-#dropZone{
-	height: 500px;
-	border: solid 1px #333;
-	border-radius: 10px;
+.column{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	/*background-color: #333;*/
+}
+
+#con1{
+	width: 500px;
+}
+
+#con2{
+	width: 100%;
+}
+
+
+#logo{
+	width: 175px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.backOp{
+	width: 225px;
+	margin-right: 30px;
+	border-radius: 10px;
+}
+
+.option p{
+	color: #ffffff;
+	font-size: 22px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+
+.option img{
+	cursor: pointer;
+	transition: all .2s;
+}
+
+.option img:hover{
+	opacity: .9;
+}
+
+#select{
+	margin-left: 10px;
+}
+
+#dropZone{
+	border-radius: 15px;
+	background-image: url(../images/forest_spring.png); 
+		background-repeat:no-repeat; 
+		background-size: cover; 
+		background-position: center;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 15px;
+		margin-right: 15px;
+
+	height: 575px;
+	display: flex;
 	justify-content: space-around;
+}
+
+#dropBorder{
+	border: solid #ffffff 1px;
+	border-radius: 15px;
+	width: 97%;
+	margin-left: auto;
 }
 
 #dragZone{
-	width: 830px;
-	height: 150px;
-	border: solid 1px #333;
-	border-radius: 10px;
-	margin-top: 20px; 
-	margin-bottom: 20px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
-#resetZone{
-	width: 150px;
-	height: 150px;
-	margin-left: 20px;
-	border: solid 1px #333;
-	border-radius: 10px;
-	margin-top: 20px; 
-	margin-bottom: 20px;
+	border: solid #ffffff 1px;
+	border-radius: 15px;
+	width: 82%;
 }
 
 #dragZone img{
 	width: 150px;
 	height: 150px;
+	cursor: grab;
 }
 
-.animal{
-	width: 170px;
+#resetZone{
+	border: solid #ffffff 1px;
+	border-radius: 15px;
+	width: 150px;
+	display: flex;
+	justify-content: center;
+	transition: all .2s;
+	cursor: pointer;
+}
+
+#resetZone:hover{
+	background-color: #333;
+}
+
+#resetZone p{
+	color: #ffffff;
+	align-self: center;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+#dragReset{
+	margin-left: auto;
+	width: 97%;
+	justify-content: space-between;
+	margin-top: 20px;
 }
 
 .dz{
-
-	height: 175px;
-	width: 175px;
-	margin: 10px;
+	/*background-color: #333;*/
+	border-radius: 100px;
+	padding: 10px;
+	height: 160px;
+	width: 150px;
 }
 
-.dz .active{
-	border: 2px solid pink;
+.animal{
+	height: 150px;
+	width: 150px;
 }
+
+.invisible{
+	opacity: .5;
+}
+
+.off {
+	visibility: hidden;
+}
+
+
+#dragH2{
+	margin-left: 20px;
+	margin-top: 15px;
+	margin-bottom: 0px;
+}
+
+#dragDiv{
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	bottom: 10px;
+	right: 10px;
+}
+
 
 #dz1{
 	position: relative;
-	top: 300px;
-	transition: all ease .2s;
+	top: 400px;
+	left: 50px;
 }
 
 #dz2{
-	transition: all ease .2s;
+	position: relative;
+	right: 100px;
 }
 
 #dz3{
 	position: relative;
-	top: 300px;
-	transition: all ease .2s;
+	top: 350px;
+	right: 100px;
+	
 }
 
 #dz4{
 	position: relative;
-	top: 50px;
-	transition: all ease .2s;
+	top: 15px;
+	left: 15px;
 }
 
-.invisible{
-	opacity: .2;
+.active{
+	background-color: #ffffff;
+	border-radius: 100px;
 }
 
-.visible{
-	display: inline;
+.on{
+	opacity: 1;
 }
+
