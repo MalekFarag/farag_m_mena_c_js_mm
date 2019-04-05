@@ -1,0 +1,111 @@
+@charset "UTF-8";
+/*CSS Doc*/
+
+.hidden
+{
+	display: none;
+}
+
+body{
+	background-color: black;
+	font-family: helvetica, arial, sans-serif;
+}
+
+h1{
+	color: white;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
+	margin: 20px;
+}
+
+#container{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.row{
+	display: flex;
+	flex-direction: row;
+}
+
+#dropZone{
+	height: 500px;
+	border: solid 1px #333;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+#dragZone{
+	width: 830px;
+	height: 150px;
+	border: solid 1px #333;
+	border-radius: 10px;
+	margin-top: 20px; 
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+#resetZone{
+	width: 150px;
+	height: 150px;
+	margin-left: 20px;
+	border: solid 1px #333;
+	border-radius: 10px;
+	margin-top: 20px; 
+	margin-bottom: 20px;
+}
+
+#dragZone img{
+	width: 150px;
+	height: 150px;
+}
+
+.animal{
+	width: 170px;
+}
+
+.dz{
+
+	height: 175px;
+	width: 175px;
+	margin: 10px;
+}
+
+.dz .active{
+	border: 2px solid pink;
+}
+
+#dz1{
+	position: relative;
+	top: 300px;
+	transition: all ease .2s;
+}
+
+#dz2{
+	transition: all ease .2s;
+}
+
+#dz3{
+	position: relative;
+	top: 300px;
+	transition: all ease .2s;
+}
+
+#dz4{
+	position: relative;
+	top: 50px;
+	transition: all ease .2s;
+}
+
+.invisible{
+	opacity: .2;
+}
+
+.visible{
+	display: inline;
+}
