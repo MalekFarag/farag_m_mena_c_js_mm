@@ -163,19 +163,19 @@ const	dragZone	 = document.getElementById('dragDiv'),
 
 	// Background Change	
 		function springChange(){
-			dropZone.style.backgroundImage = 'url(images/forest_spring.png)';
+			dropZone.style.backgroundImage = 'url(assets/gif_background/spring.gif)';
 		};
 
 		function fallChange(){
-			dropZone.style.backgroundImage = 'url(images/forest_fall.png)';
+			dropZone.style.backgroundImage = 'url(assets/gif_background/fall.gif)';
 		};
 
 		function winterChange(){
-			dropZone.style.backgroundImage = 'url(images/forest_winter.png)';
+			dropZone.style.backgroundImage = 'url(assets/gif_background/winter.gif)';
 		};
 
 		function summerChange(){
-			dropZone.style.backgroundImage = 'url(images/forest_summer.png)';
+			dropZone.style.backgroundImage = 'url(assets/gif_background/summer.gif)';
 		};
 
 
